@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Garantiee the window in not nil
         guard let window = self.window else { fatalError("No Window") }
-        
+         var navigationController: UINavigationController?
         navigationController = UINavigationController.init(rootViewController: rootViewController)
         
         // Set the (main entry point) root view controller of the app

@@ -62,7 +62,7 @@
 			children = (
 				1334CE2E21258810007100EB /* extension */,
 				1334CE2B21256F3E007100EB /* Model */,
-				1334CE2821255F1A007100EB /* TableViewCells */,
+				1334CE2821255F1A007100EB /* CollectionViewCells */,
 				1334CE1321255E99007100EB /* AppDelegate.swift */,
 				1334CE1521255E99007100EB /* ViewController.swift */,
 				1334CE1D21255E9F007100EB /* Assets.xcassets */,
@@ -73,12 +73,12 @@
 			path = Landmark;
 			sourceTree = "<group>";
 		};
-		1334CE2821255F1A007100EB /* TableViewCells */ = {
+		1334CE2821255F1A007100EB /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				1334CE2921255FCE007100EB /* LDKCollectionViewCell.swift */,
 			);
-			path = TableViewCells;
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		1334CE2B21256F3E007100EB /* Model */ = {

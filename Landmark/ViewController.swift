@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     var navBar: UINavigationBar!
     
+    var feedbackGenerator : UISelectionFeedbackGenerator? = nil
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -84,18 +86,18 @@ class ViewController: UIViewController {
             
             let searchController = UISearchController(searchResultsController: nil)
             
-//            searchController.searchBar.barStyle = .black
+            searchController.searchBar.barStyle = .black
             
             searchController.searchBar.tintColor = UIColor.white
             searchController.searchBar.barTintColor = UIColor.white
-        
+
             if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
                 textfield.textColor = UIColor.blue
                 if let backgroundview = textfield.subviews.first {
-                    
+
                     // Background color
                     backgroundview.backgroundColor = UIColor.white
-                    
+
                     // Rounded corner
                     backgroundview.layer.cornerRadius = 10;
                     backgroundview.clipsToBounds = true;
@@ -170,6 +172,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         return UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        feedbackGenerator = UISelectionFeedbackGenerator()
+//
+//        // Prepare the generator when the gesture begins.
+//        feedbackGenerator?.prepare()
+//
+//        feedbackGenerator?.selectionChanged()
+//
+//        // Keep the generator in a prepared state.
+//        feedbackGenerator?.prepare()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//         feedbackGenerator = nil
+    }
     //set Minimum spacing between 2 items
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -177,6 +194,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
      //set minimum vertical line spacing here between two lines in collectionview
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 40
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+
+        UIView.animate(withDuration: 0.2, animations: {
+            collectionView.cellForItem(at: indexPath)?.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }, completion: nil)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.2, animations: {
+            collectionView.cellForItem(at: indexPath)?.transform = CGAffineTransform.identity
+        }, completion: nil)
+//        feedbackGenerator = nil
     }
     
     
